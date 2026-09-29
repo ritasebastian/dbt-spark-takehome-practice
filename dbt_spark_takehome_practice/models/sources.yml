@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: transactions
+        description: Raw payment transaction feed.
+        columns:
+          - name: txn_id
+            tests:
+              - not_null
+              - unique
+          - name: user_id
+            tests:
+              - not_null

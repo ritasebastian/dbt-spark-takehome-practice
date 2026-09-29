@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: Cleaned and standardized transaction data.
+    columns:
+      - name: txn_id
+        tests:
+          - not_null
+          - unique
+
+      - name: user_id
+        tests:
+          - not_null
+
+      - name: txn_status
+        tests:
+          - accepted_values:
+              values: ['COMPLETED', 'FAILED', 'PENDING']
+
+      - name: amount_usd
+        tests:
+          - not_null

@@ -1,0 +1,20 @@
+name: 'dbt_spark_takehome_practice'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_spark_takehome_practice'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_spark_takehome_practice:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,11 @@
+dbt_spark_takehome_practice:
+  target: dev
+  outputs:
+    dev:
+      type: databricks
+      catalog: main
+      schema: dbt_practice
+      host: adb-xxxxxxxxxxxxxxxx.x.azuredatabricks.net
+      http_path: /sql/1.0/warehouses/xxxxxxxxxxxxxxxx
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
+      threads: 4
